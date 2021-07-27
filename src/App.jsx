@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import OffcanvasMenu from "./components/OffcanvasMenu";
 import Auth from "./components/Auth";
 import User from "./components/User";
+import Register from "./components/Register";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from "./components/base.module.scss"
 
@@ -66,6 +67,7 @@ export default class App extends Component {
                     <Route exact path='/login'>
                         <Auth/>
                     </Route>
+                    <Route exact path='/register' component={Register} />
                     <PrivateRoute exact path='/user' component={User} />
                 </Switch>
             </Router>
