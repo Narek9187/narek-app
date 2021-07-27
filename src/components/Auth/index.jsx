@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { history } from '../History';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import styles from "./auth.module.scss"
 
 export default class Auth extends Component {
@@ -48,6 +48,7 @@ export default class Auth extends Component {
                     <input type="text" name='login' placeholder='login' onChange={this.setData} />
                     <input type="text" name='password' placeholder='password' onChange={this.setData} />
                     <button>Login</button>
+                    <NavLink to="/register" className={styles.register}>You don't have any account?</NavLink>
                 </form>
             </div>
         )
