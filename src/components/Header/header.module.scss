@@ -1,0 +1,53 @@
+* {
+    font-family: 'Catamaran', sans-serif;
+    box-sizing: border-box;
+}
+.header {
+    display: flex;
+    height: 95px;
+    max-width: 1400px;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+    //overflow: hidden;
+
+    .logo {
+        width: 30%;
+        height: 100%;
+        img {
+            height: 100%;
+        }
+    }
+}
+.navMain {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .nav_item.is_active a, .nav_item a:hover {
+        color: #929292;
+    }
+    .nav_item a {
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 700;
+        color: #080808;
+        transition: .25s color ease;
+    }
+}
+.widgets {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .entry_btn {
+        transition: .25s color ease;
+        &:hover { color: #929292; }
+    }
+    .entry_item { position: relative; }
+    .input_box {
+        position: absolute;
+        bottom: -50px;
+        left: -130px;
+    }
+}
