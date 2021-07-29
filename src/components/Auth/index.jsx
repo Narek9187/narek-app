@@ -6,29 +6,16 @@ import styles from "./auth.module.scss"
 export default class Auth extends Component {
     constructor(props) {
         super();
-        this.db = [
-            {
-                "login": "john",
-                "password": "qwerty"
-            },
-            {
-                "login": "george",
-                "password": "8989"
-            },
-            {
-                "login": "Cherry",
-                "password": "boom"
-            }
-        ]
         this.setData = this.setData.bind(this);
         this.check = this.check.bind(this);
     }
 
     check(event) {
         event.preventDefault();
-        const User = this.db.find(user => user.login === this.state.login);
-        if(User) {
-            localStorage.user = JSON.stringify(this.state);
+
+        const Users = JSON.parse(localStorage.getItem("users"));
+        const Exist = Users.find(user => this.state.login === user.login);
+        if(Exist) {
             localStorage.token = true;
             return history.push("/user");
         }

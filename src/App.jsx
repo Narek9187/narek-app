@@ -55,20 +55,29 @@ export default class App extends Component {
     render() {
         return (
             <Router history = {history}>
-                <Header freeText={this.state.freeText} logo={this.state.logo} NavLinks={this.state.NavLinks}
-                        showSidebar={this.showSidebar} isOpen={this.state.isOpen}/>
-                <Main/>
-                <Footer/>
+
                 <OffcanvasMenu freeText={this.state.freeText} logo={this.state.logo} NavLinks={this.state.NavLinks}
                                isOpen={this.state.isOpen}/>
                 <div className={`${styles.overlay} ${this.state.isOpen ? styles.is_open : ""}`}
                      onClick={this.showSidebar}/>
                 <Switch>
+                    <Route exact path='/'>
+                        <Header freeText={this.state.freeText} logo={this.state.logo} NavLinks={this.state.NavLinks}
+                        showSidebar={this.showSidebar} isOpen={this.state.isOpen}/>
+                        <Main/>
+                        <Footer/>
+                    </Route>
                     <Route exact path='/login'>
                         <Auth/>
                     </Route>
+                    <PrivateRoute exact path='/user'>
+                           <Header freeText={this.state.freeText} logo={this.state.logo} NavLinks={this.state.NavLinks}
+                        showSidebar={this.showSidebar} isOpen={this.state.isOpen}/>
+                        <User />
+                        <Main/>
+                        <Footer/>
+                    </PrivateRoute>
                     <Route exact path='/register' component={Register} />
-                    <PrivateRoute exact path='/user' component={User} />
                 </Switch>
             </Router>
         )
