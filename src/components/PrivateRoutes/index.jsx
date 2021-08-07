@@ -9,6 +9,6 @@ export default class PrivateRoute extends Component {
   }
 
   render() {
-    return this.isCheck ? <Route {...this.props} user={JSON.parse(this.users)} /> : <Redirect to="/login" />;
+    return this.isCheck ? <Route {...this.props} /> : <Redirect to="/login" />;
   }
 }

@@ -2,8 +2,7 @@ import React, {Component} from "react";
 import {
   Router,
   Switch,
-  Route,
-  NavLink
+  Route
 } from "react-router-dom";
 import {history} from './components/History';
 import PrivateRoute from './components/PrivateRoutes';
@@ -14,6 +13,7 @@ import OffcanvasMenu from "./components/OffcanvasMenu";
 import Auth from "./components/Auth";
 import User from "./components/User";
 import Register from "./components/Register";
+import ToDoApp from "./ui-kit/components/ToDoApp";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from "./components/base.module.scss"
 
@@ -63,22 +63,17 @@ export default class App extends Component {
                 <Switch>
                     <Route exact path='/'>
                         <Header freeText={this.state.freeText} logo={this.state.logo} NavLinks={this.state.NavLinks}
-                        showSidebar={this.showSidebar} isOpen={this.state.isOpen}/>
+                                showSidebar={this.showSidebar} isOpen={this.state.isOpen}/>
                         <Main/>
                         <Footer/>
                     </Route>
                     <Route exact path='/login'>
                         <Auth/>
                     </Route>
-                    <PrivateRoute exact path='/user'>
-                           <Header freeText={this.state.freeText} logo={this.state.logo} NavLinks={this.state.NavLinks}
-                        showSidebar={this.showSidebar} isOpen={this.state.isOpen}/>
-                        <User />
-                        <Main/>
-                        <Footer/>
-                    </PrivateRoute>
+                    <PrivateRoute exact path='/user' component={User} />
                     <Route exact path='/register' component={Register} />
                 </Switch>
+                <ToDoApp/>
             </Router>
         )
     }

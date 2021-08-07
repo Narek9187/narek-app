@@ -26,7 +26,7 @@ export default class Register extends Component {
                 if(Exist) return alert("Login already exists!");
                 Users.push({"login": this.state.login, "password": this.state.password});
                 localStorage.users = JSON.stringify(Users);
-                history.push("/user");
+                history.push(`/user/:${Users}`);
             }
         }
         this.err = true;
